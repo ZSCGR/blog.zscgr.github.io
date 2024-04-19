@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="自定义HuggingFace（抱脸）域名">
+<title>自定义HuggingFace（抱脸）域名</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">自定义HuggingFace（抱脸）域名</h1>
+<div class="title-right">
+    <a href="https://blog.chgr.cc" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>闲聊</h1>
+<p>之前看到了有人分享了搭建始皇同款网站监控面板<a href="https://linux.do/t/topic/31141" rel="nofollow">uptime-kuma</a>的文章。<br>
+我对其中huggingface分配的域名不仅难看、难记还不能自定义不好用的这个观点非常认同。所以我下面可以提供另一种在huggingface上自定义域名的方法以供大家参考。</p>
+<h1>正片</h1>
+<p>其实就是在部署<a href="https://github.com/Harry-zklcdc/go-proxy-bingai">NB</a>这个项目的时候看到<a href="https://github.com/Harry-zklcdc/go-proxy-bingai/discussions/338">讨论338</a>中作者提供了利用Cloudflare Tunnel来对HuggingFace和 CodeSandbox进行自定义域名,虽然该项目本身已经被HuggingFace 封杀掉了，但是不影响我们使用其中的Cloudflare Tunnel的穿透服务。</p>
+<h1>修改及配置</h1>
+<h2>CLOUDFLARE</h2>
+<p>首先进入 Zero Trust 后台<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/e82fe509-5c0a-468f-9095-06b300153a04"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/e82fe509-5c0a-468f-9095-06b300153a04" alt="index" style="max-width: 100%;"></a><br>
+选择「Network」-&gt; 「Tunnel」-&gt; 「Create a Tunnel」<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/bd880c4e-5cee-4367-bec3-0e5b8fc01836"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/bd880c4e-5cee-4367-bec3-0e5b8fc01836" alt="tunnel" style="max-width: 100%;"></a><br>
+选择「Cloudflared」<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/2690f500-927d-494a-877a-2fbd9fddf962"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/2690f500-927d-494a-877a-2fbd9fddf962" alt="choose" style="max-width: 100%;"></a><br>
+填入该隧道的注释名称<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/376cceaa-4d37-4397-9323-4233ff8d51b9"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/376cceaa-4d37-4397-9323-4233ff8d51b9" alt="name" style="max-width: 100%;"></a><br>
+点击右边方框内的内容, 复制安装命令<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/d524b19c-fd10-41e0-a44d-1b6b94b6cf82"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/d524b19c-fd10-41e0-a44d-1b6b94b6cf82" alt="token" style="max-width: 100%;"></a><br>
+只需要框出来的这个，将后面的<code class="notranslate">eyJhIjoiMmxxxxxxxxxxxxxxxxxxxxx</code>复制出来保存。</p>
+<h2>HuggingFace</h2>
+<p>在huggingface的uptime-kuma仓库设置中添加秘密环境变量<br>
+Name为<code class="notranslate">CF_ZERO_TRUST_TOKEN</code><br>
+Value为<code class="notranslate">eyJhIjoiMmxxxxxxxxxxxxxxxxxxxxx</code>,即之前在cloudflare中获取的那个。<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/0e8c966e-3cf0-429f-a2af-775c8097c932"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/0e8c966e-3cf0-429f-a2af-775c8097c932" alt="环境变量" style="max-width: 100%;"></a><br>
+然后重启 Space<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/2509ec60-9758-4b1b-8937-0d863b8585d6"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/2509ec60-9758-4b1b-8937-0d863b8585d6" alt="restart" style="max-width: 100%;"></a><br>
+然后对上面部署uptime-kuma项目的Dockerfile进行如下修改</p>
+<pre class="notranslate"><code class="notranslate">FROM alpine AS builder
+RUN apk add --no-cache nodejs npm git
+
+RUN npm install npm -g
+
+RUN adduser -D app
+
+USER root
+RUN apk --no-cache add curl supervisor
+# 创建 Supervisor 日志目录并设置权限
+RUN mkdir -p /var/log/supervisor/ &amp;&amp; \
+    chown -R app:app /var/log/supervisor/
+
+# 创建 Supervisor 运行目录并设置权限
+RUN mkdir -p /var/run/supervisor/ &amp;&amp; \
+    chown -R app:app /var/run/supervisor/
+
+USER app
+WORKDIR /home/app
+
+RUN git clone https://github.com/louislam/uptime-kuma.git
+WORKDIR /home/app/uptime-kuma
+RUN npm run setup
+
+USER root
+WORKDIR /home/app
+RUN curl -LO https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 &amp;&amp; \
+    chmod +x cloudflared-linux-amd64 &amp;&amp; \
+    mv cloudflared-linux-amd64 /usr/local/bin/cloudflared
+
+COPY ../supervisor.conf /etc/supervisor/supervisord.conf
+COPY ../start.sh /usr/bin/start.sh
+
+WORKDIR /home/app/uptime-kuma
+USER app
+
+EXPOSE 3001
+#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf", "&amp;&amp;", "node", "server/server.js"]
+#CMD ["node", "server/server.js"] dockerfile
+#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+CMD ["sh", "/usr/bin/start.sh"]
+</code></pre>
+<p>这是我自己修改的，<strong>有些地方可能有些混乱</strong>，但毕竟是我自己用的，只要能运行，我就懒得优化了 😜 。</p>
+<p>然后再huggingface继续创建<code class="notranslate">supervisor.conf</code>配置文件。该配置文件也是来自于NB项目<a href="https://github.com/Harry-zklcdc/go-proxy-bingai/blob/master/docker/supervisor.conf">supervisor</a>，我只使用到了我用到的文件（大概？）</p>
+<pre class="notranslate"><code class="notranslate">[supervisord]
+logfile=/var/log/supervisor/supervisord.log
+logfile_maxbytes=10MB
+logfile_backups=10
+loglevel=info
+pidfile=/var/run/supervisor/supervisord.pid
+nodaemon=true
+childlogdir=/var/log/supervisor
+
+[inet_http_server]
+port=127.0.0.1:9005
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory=supervisor.rpcinterface:make_main_rpcinterface
+
+[supervisorctl]
+serverurl=http://127.0.0.1:9005
+
+[program:cloudflared]
+command=/usr/local/bin/cloudflared tunnel --no-autoupdate run --token %(ENV_CF_ZERO_TRUST_TOKEN)s
+directory=/
+stdout_logfile=/dev/stdout
+stderr_logfile=/dev/stderr
+autostart=true
+autorestart=true
+startsecs=5
+stopwaitsecs=5
+killasgroup=true
+</code></pre>
+<p>原本的Dockerfile文件中最后一行的<code class="notranslate">CMD ["node", "server/server.js"] dockerfile</code>（已经被注释掉放进了sh脚本）我是打算配置到<code class="notranslate">supervisor</code>服务中的，奈何我问了ChatGPT也没能解决没有访问权限的问题，所以就丢进sh脚本一起运行了，下面就是在huggingface中创建这个sh脚本文件，<code class="notranslate">start.sh</code></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#!</span>/bin/bash</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 启动 supervisord</span>
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf <span class="pl-k">&amp;</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 启动 Node.js 应用</span>
+node server/server.js</pre></div>
+<p>这样自动部署后就应该正常运行能访问了，即使HuggingFace的仓库本身不公开即（private），也能通过cloudflare tunnel中的自定义域名来访问。<br>
+另附<code class="notranslate">README.md</code>文件内容，如果是安装LINUX DO的那个帖子部署的，应该是没问题的</p>
+<pre class="notranslate"><code class="notranslate">---
+title: Uptime Kuma
+emoji: 🏢
+colorFrom: indigo
+colorTo: gray
+sdk: docker
+pinned: false
+license: mit
+app_port: 3001
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+</code></pre>
+<h2>END</h2>
+<p>最后回到cloudflare tunnel界面，看到绿色的Status中显示HEALTHY<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/cb2ce660-f9b6-469d-9c92-d9e577371420"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/cb2ce660-f9b6-469d-9c92-d9e577371420" alt="tunnel" style="max-width: 100%;"></a><br>
+就表示已经连接成功了。然后点击配置进入下面的页面<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/f53e5df5-71dc-4db9-9d78-92d6ddaaade6"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/f53e5df5-71dc-4db9-9d78-92d6ddaaade6" alt="public" style="max-width: 100%;"></a><br>
+然后在下一个页面中填入如图所示内容<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/fe692a7a-d595-4ecb-aaa0-e3a2ea9c1463"><img src="https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/fe692a7a-d595-4ecb-aaa0-e3a2ea9c1463" alt="example" style="max-width: 100%;"></a></p>
+<blockquote>
+<p><code class="notranslate">Subdomain</code> 是指子域名, 自定义</p>
+<p><code class="notranslate">Domain</code>选择绑定到 Cloudflare 的域名, 自定义</p>
+<p><code class="notranslate">Type</code>选择 <code class="notranslate">HTTP</code>, 不要改</p>
+<p>URL 填入 <code class="notranslate">localhost:3001</code>，即你在huggingface的README.MD中<code class="notranslate">app_port: 3001</code>暴露的端口<br>
+最后，你就可以用刚才填入的域名去访问了。</p>
+</blockquote></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://blog.chgr.cc"> Note & Blog </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if("04/12/2024"!=""){
+    var now=new Date();
+    var startSite=new Date("04/12/2024");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","ZSCGR/blog.zscgr.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+
+
+</html>
