@@ -140,5 +140,5 @@ Check out the configuration reference at https://huggingface.co/docs/hub/spaces-
 >
 >`Type`选择 `HTTP`, 不要改
 >
->URL 填入 `localhost:3001`，即你在huggingface的README.MD中`app_port: 3001`暴露的端口
+>`URL` 填入 `localhost:3001`，即你在huggingface的README.MD中`app_port: 3001`暴露的端口
 最后，你就可以用刚才填入的域名去访问了。
