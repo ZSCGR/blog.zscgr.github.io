@@ -5,7 +5,7 @@ cloudflare R2是一个文件储存系统，配合Cloudflare Workers可以实现�
 ![R2](https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/e9825adf-f990-48bb-92dd-e63d76ce9bb3)
 # 部署
 首先fork这个[图床](https://github.com/ljxi/Cloudflare-R2-oss)，然后去cloudflare创建一个R2存储桶。
-![R2-create](https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/d5c81508-21df-4882-8193-f96b1fd637b6)
+![R2-create](https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/66bda92b-461e-4ba8-9c76-0b99527cf974)
 然后前往Cloudflare Pages新建一个站点，选择连接到Git
 
 ![page-1](https://github.com/ZSCGR/blog.zscgr.github.io/assets/75410405/0de6e171-2e5a-4753-be6d-5833a72b60a8)
