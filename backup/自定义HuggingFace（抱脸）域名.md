@@ -1,6 +1,6 @@
 # 闲聊
 之前看到了有人分享了搭建始皇同款网站监控面板[uptime-kuma](https://linux.do/t/topic/31141)的文章。
-我对其中huggingface分配的域名不仅难看、难记还不能自定义不好用的这个观点非常认同。所以我下面可以提供另一种在huggingface上自定义域名的方法以供大家参考。
+我对其中huggingface分配的域名不仅难看、难记还不能自定义不好用的这个观点非常认同。所以我下面可以提供另一种在huggingface上自定义域名的方法以供大家参考。虽然带上了uptime-kuma这个项目，但是用huggingface部署的其他项目也是能用这种方法进行自定义域名的。
 # 正片
 其实就是在部署[NB](https://github.com/Harry-zklcdc/go-proxy-bingai)这个项目的时候看到[讨论338](https://github.com/Harry-zklcdc/go-proxy-bingai/discussions/338)中作者提供了利用Cloudflare Tunnel来对HuggingFace和 CodeSandbox进行自定义域名,虽然该项目本身已经被HuggingFace 封杀掉了，但是不影响我们使用其中的Cloudflare Tunnel的穿透服务。
 # 修改及配置

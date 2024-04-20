@@ -61,7 +61,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>闲聊</h1>
 <p>之前看到了有人分享了搭建始皇同款网站监控面板<a href="https://linux.do/t/topic/31141" rel="nofollow">uptime-kuma</a>的文章。<br>
-我对其中huggingface分配的域名不仅难看、难记还不能自定义不好用的这个观点非常认同。所以我下面可以提供另一种在huggingface上自定义域名的方法以供大家参考。</p>
+我对其中huggingface分配的域名不仅难看、难记还不能自定义不好用的这个观点非常认同。所以我下面可以提供另一种在huggingface上自定义域名的方法以供大家参考。虽然带上了uptime-kuma这个项目，但是用huggingface部署的其他项目也是能用这种方法进行自定义域名的。</p>
 <h1>正片</h1>
 <p>其实就是在部署<a href="https://github.com/Harry-zklcdc/go-proxy-bingai">NB</a>这个项目的时候看到<a href="https://github.com/Harry-zklcdc/go-proxy-bingai/discussions/338">讨论338</a>中作者提供了利用Cloudflare Tunnel来对HuggingFace和 CodeSandbox进行自定义域名,虽然该项目本身已经被HuggingFace 封杀掉了，但是不影响我们使用其中的Cloudflare Tunnel的穿透服务。</p>
 <h1>修改及配置</h1>
