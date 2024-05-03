@@ -7,7 +7,8 @@
     "homeUrl":"https://blog.chgr.cc",
     "startSite":"04/12/2024",
     "onePageListNum":15,
+    "UTC":8,
     "urlMode":"issue",
-    "showPostSource":"1",
+    "showPostSource":1,
     "rssSplit":"sentence"
 }
