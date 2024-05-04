@@ -11,6 +11,7 @@
     "exlink":{"home":"https://www.chgr.cc"},
     "UTC":8,
     "urlMode":"issue",
+    "style":"<style>#fireworks {position: fixed;top: 0px;z-index: 9999;</style>",
     "script":"<script async src='//fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js'></script><script async src='//fastly.jsdelivr.net/gh/murenziwei/lw_firewords@latest/index.js'></script><script>var yh = new CursorSpecialEffects();yh.init();</script>",
     "showPostSource":1,
     "rssSplit":"sentence"
