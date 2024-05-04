@@ -11,7 +11,6 @@
     "exlink":{"home":"https://www.chgr.cc"},
     "UTC":8,
     "urlMode":"issue",
-    "style":"<style>body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;background-image: url('https://tc.chgr.cc/raw/SR/%E6%B5%81%E8%90%A4.avif');background-size: cover;background-position: center;}</style>",
     "script":"<script async src='//fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js'></script><script async src='//fastly.jsdelivr.net/gh/ZSCGR/click@latest/sursor-effects.js'></script>",
     "showPostSource":1,
     "rssSplit":"sentence"
