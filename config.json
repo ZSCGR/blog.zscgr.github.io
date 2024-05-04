@@ -11,7 +11,7 @@
     "exlink":{"home":"https://www.chgr.cc"},
     "UTC":8,
     "urlMode":"issue",
-    "script":"<script src="//fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>",
+    "script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>",
     "showPostSource":1,
     "rssSplit":"sentence"
 }
