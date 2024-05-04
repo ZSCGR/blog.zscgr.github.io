@@ -9,13 +9,20 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="Vercel运行PHP">
+<meta name="description" content="# 起因
+在B站看到一个点击按钮计数的项目[原神主题网页](https://gitee.com/KleeGitee/Klee),由于不会构造后端，当时也不太会代码，所以就用了php构造后端来连接数据库，用ChatGPT写了请求和修改的逻辑（面向ChatGPT编程 :smile:），自己部署的是我自己修复了一个原项目bug的版本。">
+<meta property="og:title" content="Vercel运行PHP">
+<meta property="og:description" content="# 起因
+在B站看到一个点击按钮计数的项目[原神主题网页](https://gitee.com/KleeGitee/Klee),由于不会构造后端，当时也不太会代码，所以就用了php构造后端来连接数据库，用ChatGPT写了请求和修改的逻辑（面向ChatGPT编程 :smile:），自己部署的是我自己修复了一个原项目bug的版本。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.chgr.cc/post/2.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/75410405?v=4">
 <title>Vercel运行PHP</title>
 
 
 </head>
 <style>
-body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;background-image: url('https://tc.chgr.cc/raw/SR/%E6%B5%81%E8%90%A4.avif');background-position: center center;background-size: cover;background-repeat: no-repeat;background-attachment: fixed;}
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
